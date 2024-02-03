@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="{% static 'soi2.css'%}">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="c">
+        <button class="logout alignment shadow" role="button" ><a href="/logout">Logout</a></button>
+        <h1 style="color:black;font-size:25px;font-weight:500;padding:20px;padding-top:30px;font-family: 'Poppins', sans-serif;">HOME PAGE</h1>
+        <h1 style="color:black;font-size:35px;font-weight:700;padding:20px;font-family: 'Poppins', sans-serif;">Our Services</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="cont w-100 mb-5 shadow" style="text-align:center">
+                        <img src="{% static 'images/img2.png'%}" class="im">
+                        <div style="padding:10px">
+                            <h1 style="font-size: 28px;color: black">Text Compression</h1>
+                            <p style="font-size:17px;color:black">Compress/decompress your text file up to 40%...</p>
+                            <form method="post" action="{% url 'afterlogin' %}" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <label for="id_file" class="file-label">
+                                    <span class="btn btn-dark" style="color:#cced00">
+                                        Upload File
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" style="color:#cced00" />
+                                        </svg>
+                                    </span>
+<!--                                    sending name attribute to backend-->
+                                    <input type="file" name="file" id="id_file" class="file-input" required>
+                                </label>
+                                <button type="submit" class="btn btn-dark mb-5" style="color:#cced00">
+                                    Start Compression
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" style="color:#cced00" />
+                                    </svg>
+                                </button>
+                            </form>
+                            <style>
+                                .file-label {
+                                    position: relative;
+                                    display: inline-block;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                .file-input {
+                                    position: absolute;
+                                    left: -9999px;
+                                    bottom:-12px;
+                                }
+                            </style>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+    <div class="cont w-100 mb-5 shadow" style="text-align:center;background-color:white;">
+        <img src="{% static 'images/img1.png' %}" class="im">
+        <div style="padding:10px">
+            <h1 style="font-size: 28px;color: black">Image Compression</h1>
+            <p style="font-size:17px;color:black">Upload images and let us handle the rest</p>
+            <form method="post" action="{% url 'afterlogin' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="id_image_file" class="file-label">
+                    <span class="btn btn-dark" style="color:#cced00">
+                        Upload Image
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" style="color:#cced00" />
+                        </svg>
+                    </span>
+                    <input type="file" name="file" id="id_image_file" accept="image/*" style="display: none;" required>
+<!--                                    sending name attribute to backend-->
+                </label>
+                <button type="submit" class="btn btn-dark mb-5" style="color:#cced00">
+                    Start Compression
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" style="color:#cced00" />
+                    </svg>
+                </button>
+            </form>
+            <style>
+                                .file-label {
+                                    position: relative;
+                                    display: inline-block;
+                                    overflow: hidden;
+                                    white-space: nowrap;
+                                }
+
+                                .file-input {
+                                    position: absolute;
+                                    left: -9999px;
+                                    bottom:-12px;
+                                }
+                            </style>
+        </div>
+    </div>
+</div>
+
+
+            </div>
+        </div>
+    </div>
+<!--<script>-->
+<!--      const imageFileInput = document.getElementById('id_image_file');-->
+<!--      const startImageCompressionButton = document.getElementById('start_image_compression');-->
+<!--      imageFileInput.addEventListener('change', function () {-->
+<!--         if (imageFileInput.files.length > 0) {-->
+<!--              startImageCompressionButton.disabled = false;-->
+<!--          } else {-->
+<!--              startImageCompressionButton.disabled = true;-->
+<!--          }-->
+<!--  });-->
+<!--</script>-->
+</body>
+
+</html>
